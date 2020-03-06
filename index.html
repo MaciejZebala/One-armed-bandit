@@ -1,14 +1,45 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pl">
 
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>One-armed bandit</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
+    <div class="wrapper">
 
+        <section class="panel">
+            <span class="wallet">Stan portfela:</span>
+        </section>
+
+        <section class="game">
+            <div class="game__color"></div>
+            <div class="game__color"></div>
+            <div class="game__color"></div>
+        </section>
+
+        <section class="play">
+            <input type="number" placeholder="Podaj stawkę" class="play__bid">
+            <button class="btn">Zakręć</button>
+        </section>
+
+        <section class="score">
+            <span class="score__result"></span>
+            <p class="score__text">
+                <span class="score__number score__number--rounds"></span>
+            </p>
+            <p class="score__text">
+                <span class="score__number score__number--win"></span>
+            </p>
+            <p class="score__text">
+                <span class="score__number score__number--lost"></span>
+            </p>
+        </section>
+
+    </div>
 </body>
 
 </html>
