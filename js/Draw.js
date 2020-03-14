@@ -2,11 +2,13 @@ class Draw {
     constructor() {
         this.options = this.drawInitialFields()[0]
         let _result = [];
-        this.getDrawResult = () => _result;
 
         for (let i = 0; i < 3; i++) {
-            _result.push(this.drawResult())
+            const result = this.drawResult()
+            _result.push(result)
         }
+
+        this.getDrawResult = () => _result;
     }
 
     drawInitialFields() {
@@ -21,14 +23,23 @@ class Draw {
 
     drawResult() {
         let fields = [];
-        //uzupełnianie poprzez losowanie
+
         for (let i = 0; i < this.options.length; i++) {
-            const index = Math.floor(Math.random() * this.options.length)
-            // fields = this.options[index]
-            // colors.push(color)
+            let index = Math.floor(Math.random() * this.options.length)
             fields.push(this.options[index])
         }
         return fields
 
+    }
+
+    drawEndFields() {
+        let endFields = []
+        const drawResult = this.getDrawResult()
+
+        drawResult.forEach((result, i) => {
+            endFields.push(drawResult[i][drawResult[i].length - 1])
+        })
+
+        return endFields
     }
 }

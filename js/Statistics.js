@@ -4,11 +4,11 @@ class Statistics {
     }
 
     addGameToStatistics(win, bid) {
-        this.gameResult = {
+        let gameResult = {
             win,
             bid
         }
-        this.gameResult.push(this.gameResult)
+        this.gameResult.push(gameResult)
     }
 
     showGameStatistics() {

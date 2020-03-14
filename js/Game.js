@@ -47,17 +47,43 @@ class Game {
                 if (result) {
                     result = `Wygrałeś ${wonMoney}`
                 } else if (!result && result != '') {
-                    result = `Przegrałeś ${wonMoney}`
+                    result = `Przegrałeś ${bid}`
                 }
                 this.spanWallet.textContent = money
-                this.spanWins.textContent = stats[0]
-                this.spanLosses.textContent = stats[1]
-                this.spanRounds.textContent = stats[2]
+                this.spanWins.textContent = stats[1]
+                this.spanLosses.textContent = stats[2]
+                this.spanRounds.textContent = stats[0]
             }.bind(this), 1600)
         }
 
     }
     startGame() {
+        if (this.inputBid.value < 1) return alert('Kwota, którą chcesz grać jest za mała!')
+        const bid = Math.floor(this.inputBid.value);
+
+        if (!this.wallet.checkCanPlay(bid)) {
+            return alert("masz za mało środków lub podana została nieprawidłowa wartość")
+        }
+        this.draw = new Draw();
+        this.wallet.changeWallet(bid, '-');
+        const drawResult = this.draw.getDrawResult()
+        console.log(this.draw.getDrawResult())
+        console.log(this.draw.drawResult())
+        console.log(this.draw.options)
+        console.log(this.draw.drawEndFields())
+
+        const result = Result.checkWinner(this.draw.drawEndFields());
+
+        const wonMoney = Result.moneyWinInGame(result, bid);
+
+        console.log(this.stats.showGameStatistics())
+        console.log(this.stats.gameResult)
+
+        this.wallet.changeWallet(wonMoney);
+
+        this.stats.addGameToStatistics(result, bid);
+
+        this.render(drawResult, this.wallet.getWalletValue(), this.stats.showGameStatistics(), result, bid, wonMoney)
 
     }
 }
