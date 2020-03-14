@@ -56,7 +56,7 @@ class Game {
                 this.spanWins.textContent = stats[1]
                 this.spanLosses.textContent = stats[2]
                 this.spanRounds.textContent = stats[0]
-            }.bind(this), 1600)
+            }.bind(this), 1450)
         }
 
     }
@@ -83,6 +83,8 @@ class Game {
         this.stats.addGameToStatistics(result, bid);
 
         this.render(drawResult, this.wallet.getWalletValue(), this.stats.showGameStatistics(), result, bid, wonMoney)
+
+        this.move.rollDrums();
 
     }
 }

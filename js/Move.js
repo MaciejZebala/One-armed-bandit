@@ -12,4 +12,24 @@ class Move {
             drum.style.top = `-${this.fieldCounter * this.fieldHeight}px`;
         })
     }
+
+    rollDrums() {
+        this.drumWrap.forEach(drum => {
+            drum.style.transitionDuration = '0s';
+            drum.style.top = '0px';
+        })
+        setTimeout(function () {
+            let i = 0
+            const slide = setInterval(function () {
+                if (i < this.drumWrap.length) {
+                    this.drumWrap[i].style.transitionDuration = '1s'
+                    this.drumWrap[i].style.top = `-${(this.fieldCounter) * this.fieldHeight}px`
+                    i++
+                } else {
+                    clearInterval(slide)
+                    return;
+                }
+            }.bind(this), 150)
+        }.bind(this), 1)
+    }
 }
