@@ -3,7 +3,7 @@ class Game {
         this.stats = new Statistics();
         this.wallet = new Wallet(start);
         this.draw = new Draw();
-        // this.move = new Move();
+        this.move = new Move();
 
         document.querySelector('.btn').addEventListener('click', this.startGame.bind(this))
 
@@ -21,6 +21,9 @@ class Game {
     }
     render(drawResult = this.draw.drawInitialFields(), money = this.wallet.getWalletValue(), stats = [0, 0, 0], result = '', bid = 0, wonMoney = 0) {
 
+
+        this.move.moveDrumsToTheTop();
+        console.log(document.querySelector('.game__field').offsetHeight)
 
 
         this.drums.forEach((drum, index) => {
@@ -64,20 +67,16 @@ class Game {
         if (!this.wallet.checkCanPlay(bid)) {
             return alert("masz za mało środków lub podana została nieprawidłowa wartość")
         }
+
+        this.inputBid.value = '';
+
         this.draw = new Draw();
         this.wallet.changeWallet(bid, '-');
         const drawResult = this.draw.getDrawResult()
-        console.log(this.draw.getDrawResult())
-        console.log(this.draw.drawResult())
-        console.log(this.draw.options)
-        console.log(this.draw.drawEndFields())
 
         const result = Result.checkWinner(this.draw.drawEndFields());
 
         const wonMoney = Result.moneyWinInGame(result, bid);
-
-        console.log(this.stats.showGameStatistics())
-        console.log(this.stats.gameResult)
 
         this.wallet.changeWallet(wonMoney);
 
