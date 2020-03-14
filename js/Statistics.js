@@ -13,7 +13,7 @@ class Statistics {
 
     showGameStatistics() {
         let games = this.gameResult.length;
-        let wind = this.gameResult.filter(result => result.win).length;
+        let wins = this.gameResult.filter(result => result.win).length;
         let losses = this.gameResult.filter(result => !result.win).length
         return [games, wins, losses]
     }
