@@ -48,14 +48,17 @@ class Game {
         } else if (this.stats.gameResult.length > 0) {
             setTimeout(function () {
                 if (result) {
-                    result = `Wygrałeś ${wonMoney}`
-                } else if (!result && result != '') {
-                    result = `Przegrałeś ${bid}`
+                    result = `Wygrałeś ${wonMoney}$`
+                } else if (!result && result !== '') {
+                    result = `Przegrałeś ${bid}$`
                 }
                 this.spanWallet.textContent = money
+                this.spanResult.textContent = result
                 this.spanWins.textContent = stats[1]
                 this.spanLosses.textContent = stats[2]
                 this.spanRounds.textContent = stats[0]
+
+
             }.bind(this), 1450)
         }
 
@@ -67,6 +70,7 @@ class Game {
         if (!this.wallet.checkCanPlay(bid)) {
             return alert("masz za mało środków lub podana została nieprawidłowa wartość")
         }
+
 
         this.inputBid.value = '';
 
@@ -83,6 +87,12 @@ class Game {
         this.stats.addGameToStatistics(result, bid);
 
         this.render(drawResult, this.wallet.getWalletValue(), this.stats.showGameStatistics(), result, bid, wonMoney)
+
+        setTimeout(function () {
+            if (result) {
+                this.move.addColor();
+            }
+        }.bind(this), 1250)
 
         this.move.rollDrums();
 
