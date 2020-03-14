@@ -1,1 +1,1 @@
-const game = new Game(200)
+const game = new Game(100)
