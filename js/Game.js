@@ -5,7 +5,9 @@ class Game {
         this.draw = new Draw();
         this.move = new Move();
 
-        document.querySelector('.btn').addEventListener('click', this.startGame.bind(this))
+        this.button = document.querySelector('.btn')
+
+        this.button.addEventListener('click', this.startGame.bind(this))
 
         this.spanWallet = document.querySelector('.wallet__value');
         this.spanRounds = document.querySelector('.score__number--rounds')
@@ -61,8 +63,6 @@ class Game {
                 this.spanWins.textContent = stats[1]
                 this.spanLosses.textContent = stats[2]
                 this.spanRounds.textContent = stats[0]
-
-
             }.bind(this), 1450)
         }
 
@@ -77,6 +77,13 @@ class Game {
 
         this.drums.forEach(drum => drum.style.border = '1.5px solid #FFE52F')
         this.inputBid.value = '';
+
+        this.button.disabled = true
+        this.button.style.cursor = 'auto'
+        setTimeout(function () {
+            this.button.disabled = false
+            this.button.style.cursor = 'pointer'
+        }.bind(this), 1450)
 
         this.draw = new Draw();
 

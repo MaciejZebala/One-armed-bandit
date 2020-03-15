@@ -97,6 +97,7 @@
     font-size: 15px;
     background-color: #FFE52F;
     border: 1.5px solid black;
+    cursor: pointer;
 }
 
 .score {
