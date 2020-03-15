@@ -49,8 +49,12 @@ class Game {
             setTimeout(function () {
                 if (result) {
                     result = `Wygrałeś ${wonMoney}$`
+                    this.spanResult.style.color = 'green'
+                    this.drums.forEach(drum => drum.style.border = '3px solid #00ff04')
                 } else if (!result && result !== '') {
                     result = `Przegrałeś ${bid}$`
+                    this.spanResult.style.color = 'red'
+                    this.drums.forEach(drum => drum.style.border = '3px solid #f00')
                 }
                 this.spanWallet.textContent = money
                 this.spanResult.textContent = result
@@ -71,11 +75,13 @@ class Game {
             return alert("masz za mało środków lub podana została nieprawidłowa wartość")
         }
 
-
+        this.drums.forEach(drum => drum.style.border = '1.5px solid #FFE52F')
         this.inputBid.value = '';
 
         this.draw = new Draw();
+
         this.wallet.changeWallet(bid, '-');
+
         const drawResult = this.draw.getDrawResult()
 
         const result = Result.checkWinner(this.draw.drawEndFields());
