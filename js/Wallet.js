@@ -19,7 +19,6 @@ class Wallet {
                 }
 
             } else {
-                console.log(typeof value);
                 throw new Error("nieprawdidłowa liczba")
             }
         }

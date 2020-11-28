@@ -25,7 +25,6 @@ class Game {
 
 
         this.move.moveDrumsToTheTop();
-        console.log(document.querySelector('.game__field').offsetHeight)
 
 
         this.drums.forEach((drum, index) => {
@@ -35,7 +34,6 @@ class Game {
                 const newField = document.createElement('div')
                 newField.classList.add('game__field');
                 newField.classList.add(`game__field-${drawResult[index][i]}`)
-                console.log(drawResult[index][i])
                 newField.innerHTML = `<i class="fas fa-${drawResult[index][i]}"></i>`
                 drumWrap.appendChild(newField)
             }
