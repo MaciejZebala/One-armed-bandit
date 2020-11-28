@@ -6,7 +6,7 @@ Simple simulator of slotmachine game made in JavaScript OOP
 
 <https://maciejzebala.github.io/One-armed-bandit/>
 
-![Demo](https://github.com/MaciejZebala/One-armed-bandit/tree/master/screenshots/screen.png "Demo")
+![screnn](https://user-images.githubusercontent.com/44380136/100521106-ebc53e00-31a1-11eb-9ac6-76eebe6b7a8c.png)
 
 ## Technologies
 
@@ -17,11 +17,14 @@ Simple simulator of slotmachine game made in JavaScript OOP
 ## How to play?
 
 * You have to bet some money from you wallet here
-![BET](https://github.com/MaciejZebala/One-armed-bandit/tree/master/screenshots/bet.png "Bet")
+
+![bet](https://user-images.githubusercontent.com/44380136/100521131-0e575700-31a2-11eb-937b-2bf8e4a41009.png)
 
 * Next you have to spin machine here
-![Spin](https://github.com/MaciejZebala/One-armed-bandit/tree/master/screenshots/spin.png "Spin")
+
+![spin](https://user-images.githubusercontent.com/44380136/100521132-10211a80-31a2-11eb-8d92-b653285564a8.png)
 
 * You win if you get three or two same icon. Your reward depends on the icon you draw
-![Reward](https://github.com/MaciejZebala/One-armed-bandit/tree/master/screenshots/reward.png "Reward")
+
+![reward](https://user-images.githubusercontent.com/44380136/100521130-0bf4fd00-31a2-11eb-93c9-416e305e1c02.png)
 
